@@ -16,6 +16,7 @@ import {
   password,
   timestamp,
   select,
+  checkbox,
 } from '@keystone-6/core/fields';
 
 // the document field is a more complicated field, so it has it's own package
@@ -52,6 +53,8 @@ export const lists: Lists = {
       // we can use this field to see what Posts this User has authored
       //   more on that in the Post list below
       posts: relationship({ ref: 'Post.author', many: true }),
+
+      isAdmin: checkbox({ defaultValue: false }),
 
       createdAt: timestamp({
         // this sets the timestamp to Date.now() when the user is first created
